@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "FaWIFjBhq5W249B0F9xHpbGnr4hkima+LKMazfKXkEiNei0n7EqV5WKmm4LUFGmuqwy5eTY+85aLFjG4oVs4jg==",
+  "success": true,
+  "projectFilePath": "/home/miguel/code/aws/nice-api/niceapi-token/niceapi-token.csproj",
+  "expectedPackageFiles": [
+    "/home/miguel/.nuget/packages/amazon.lambda.apigatewayevents/2.7.1/amazon.lambda.apigatewayevents.2.7.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/amazon.lambda.core/2.5.1/amazon.lambda.core.2.5.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/awssdk.core/4.0.0.5/awssdk.core.4.0.0.5.nupkg.sha512",
+    "/home/miguel/.nuget/packages/awssdk.dynamodbv2/4.0.1/awssdk.dynamodbv2.4.0.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.bcl.memory/9.0.0/microsoft.bcl.memory.9.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.abstractions/8.8.0/microsoft.identitymodel.abstractions.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.8.0/microsoft.identitymodel.jsonwebtokens.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.logging/8.8.0/microsoft.identitymodel.logging.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.tokens/8.8.0/microsoft.identitymodel.tokens.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/nerdbank.gitversioning/3.7.115/nerdbank.gitversioning.3.7.115.nupkg.sha512",
+    "/home/miguel/.nuget/packages/system.identitymodel.tokens.jwt/8.8.0/system.identitymodel.tokens.jwt.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.netcore.app.ref/8.0.14/microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

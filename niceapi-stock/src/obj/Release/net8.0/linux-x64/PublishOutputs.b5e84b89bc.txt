@@ -1,0 +1,17 @@
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/NiceApiStock.deps.json
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/NiceApiStock.runtimeconfig.json
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/NiceApiStock.pdb
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Amazon.Lambda.Annotations.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Amazon.Lambda.APIGatewayEvents.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Amazon.Lambda.Core.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Amazon.Lambda.Serialization.SystemTextJson.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/AWSSDK.Core.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/AWSSDK.DynamoDBv2.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/AWSSDK.Extensions.NETCore.Setup.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Microsoft.Bcl.Memory.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Microsoft.IdentityModel.Abstractions.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Microsoft.IdentityModel.Logging.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/Microsoft.IdentityModel.Tokens.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/System.IdentityModel.Tokens.Jwt.dll
+/home/miguel/code/Nice/NiceApiStock/src/bin/Release/net8.0/publish/NiceApiStock.dll

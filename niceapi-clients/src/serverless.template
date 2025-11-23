@@ -1,0 +1,163 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "This template is partially managed by Amazon.Lambda.Annotations (v1.6.1.0).",
+  "Resources": {
+    "NiceApiName": {
+      "Type": "AWS::Serverless::HttpApi",
+      "Properties": {
+        "Name": "niceapi-clients"
+      }
+    },
+    "NiceAppApiClientsFunctionsGetClientGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ],
+        "SyncedEventProperties": {
+          "RootGet": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "NiceAppApi::NiceAppApi.Clients.Functions_GetClient_Generated::GetClient",
+        "Environment": {
+          "Variables": {
+            "DATABASE_CONNECTION_STRING": {
+              "Ref": "DbConnectionString"
+            }
+          }
+        },
+        "Events": {
+          "RootGet": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/clients",
+              "Method": "GET",
+              "ApiId": {
+                "Ref": "NiceApiName"
+              }
+            }
+          }
+        }
+      }
+    },
+    "NiceAppApiClientsFunctionsCreateClientGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ],
+        "SyncedEventProperties": {
+          "RootPost": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "NiceAppApi::NiceAppApi.Clients.Functions_CreateClient_Generated::CreateClient",
+        "Environment": {
+          "Variables": {
+            "DATABASE_CONNECTION_STRING": {
+              "Ref": "DbConnectionString"
+            }
+          }
+        },
+        "Events": {
+          "RootPost": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/clients",
+              "Method": "POST",
+              "ApiId": {
+                "Ref": "NiceApiName"
+              }
+            }
+          }
+        }
+      }
+    },
+    "NiceAppApiClientsFunctionsUpdateClientGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPut"
+        ],
+        "SyncedEventProperties": {
+          "RootPut": [
+            "Path",
+            "Method"
+          ]
+        }
+      },
+      "Properties": {
+        "Runtime": "dotnet8",
+        "CodeUri": ".",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "NiceAppApi::NiceAppApi.Clients.Functions_UpdateClient_Generated::UpdateClient",
+        "Environment": {
+          "Variables": {
+            "DATABASE_CONNECTION_STRING": {
+              "Ref": "DbConnectionString"
+            }
+          }
+        },
+        "Events": {
+          "RootPut": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/clients",
+              "Method": "PUT",
+              "ApiId": {
+                "Ref": "NiceApiName"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Parameters": {
+    "DbConnectionString": {
+      "Type": "String",
+      "Description": "Database connection string",
+      "NoEcho": true
+    }
+  },
+  "Outputs": {
+    "ApiURL": {
+      "Description": "URL API endpoint",
+      "Value": {
+        "Fn::Sub": "https://${NiceApiName}.execute-api.${AWS::Region}.amazonaws.com/"
+      }
+    }
+  }
+}

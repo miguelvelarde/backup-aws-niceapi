@@ -1,0 +1,55 @@
+{
+  "version": "2.0",
+  "routeKey": "GET /users",
+  "rawPath": "/users",
+  "rawQueryString": "",
+  "headers": {
+    "authorization": "Bearer TU_TOKEN_JWT"
+  },
+  "requestContext": {
+    "http": {
+      "method": "GET",
+      "path": "/users"
+    }
+  },
+  "body": null,
+  "isBase64Encoded": false
+}
+
+{
+  "version": "2.0",
+  "routeKey": "POST /users",
+  "rawPath": "/users",
+  "rawQueryString": "",
+  "headers": {
+    "content-type": "application/json",
+    "authorization": "Bearer TU_TOKEN_JWT"
+  },
+  "requestContext": {
+    "http": {
+      "method": "POST",
+      "path": "/users"
+    }
+  },
+  "body": "{\"UserId\":\"5551234567\",\"Name\":\"Juan Pérez\",\"Password\":\"password123\",\"Type\":\"user\",\"Team\":\"A\",\"Selfie\":\"https://example.com/selfie.jpg\",\"Status\":0}",
+  "isBase64Encoded": false
+}
+
+{
+  "version": "2.0",
+  "routeKey": "PUT /users",
+  "rawPath": "/users",
+  "rawQueryString": "",
+  "headers": {
+    "content-type": "application/json",
+    "authorization": "Bearer TU_TOKEN_JWT"
+  },
+  "requestContext": {
+    "http": {
+      "method": "PUT",
+      "path": "/users"
+    }
+  },
+  "body": "{\"UserId\":\"5551234567\",\"Name\":\"Juan Pérez\",\"Password\":\"nuevoPassword\",\"Type\":\"user\",\"Team\":\"A\",\"Selfie\":\"https://example.com/selfie.jpg\",\"Status\":1}",
+  "isBase64Encoded": false
+}

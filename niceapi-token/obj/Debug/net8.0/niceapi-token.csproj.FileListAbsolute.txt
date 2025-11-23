@@ -1,0 +1,13 @@
+/home/miguel/code/aws/nice-api/niceapi-token/bin/Debug/net8.0/NiceApiToken.deps.json
+/home/miguel/code/aws/nice-api/niceapi-token/bin/Debug/net8.0/NiceApiToken.dll
+/home/miguel/code/aws/nice-api/niceapi-token/bin/Debug/net8.0/NiceApiToken.pdb
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/niceapi-token.csproj.AssemblyReference.cache
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/niceapi-token.GeneratedMSBuildEditorConfig.editorconfig
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/niceapi-token.AssemblyInfoInputs.cache
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/niceapi-token.AssemblyInfo.cs
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/niceapi-token.csproj.CoreCompileInputs.cache
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/niceapi-token.sourcelink.json
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/NiceApiToken.dll
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/refint/NiceApiToken.dll
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/NiceApiToken.pdb
+/home/miguel/code/aws/nice-api/niceapi-token/obj/Debug/net8.0/ref/NiceApiToken.dll

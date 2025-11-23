@@ -1,0 +1,62 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: DynamoDB Tables for NiceAppApi Products
+
+Resources:
+  ProductsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Products
+      AttributeDefinitions:
+        - AttributeName: IdProduct
+          AttributeType: N
+        - AttributeName: Type
+          AttributeType: S
+        - AttributeName: Name
+          AttributeType: S
+        - AttributeName: Description
+          AttributeType: S
+        - AttributeName: Price
+          AttributeType: N
+      KeySchema:
+        - AttributeName: IdProduct
+          KeyType: HASH
+        - AttributeName: Type
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: Name-Type-index
+          KeySchema:
+            - AttributeName: Name
+              KeyType: HASH
+            - AttributeName: Type
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 5
+            WriteCapacityUnits: 5
+        - IndexName: Description-Type-index
+          KeySchema:
+            - AttributeName: Description
+              KeyType: HASH
+            - AttributeName: Type
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 5
+            WriteCapacityUnits: 5
+        - IndexName: Price-Type-index
+          KeySchema:
+            - AttributeName: Price
+              KeyType: HASH
+            - AttributeName: Type
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 5
+            WriteCapacityUnits: 5
+      ProvisionedThroughput:
+        ReadCapacityUnits: 10
+        WriteCapacityUnits: 10

@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>niceapi_token</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>NiceApiToken</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>../nuget-local</PackageOutputPath>
+    <PackageId>NiceApiToken</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>@miguelvelarde</Authors>
+    <Description>Paquete NuGet para autenticación JWT en NiceApi.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/miguelvelarde/niceapi-token</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.ApiGatewayEvents" Version="2.7.1" />
+    <PackageReference Include="Amazon.Lambda.Core" Version="2.5.1" />
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="4.0.1" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.7.115">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.8.0" />
+  </ItemGroup>
+
+</Project>

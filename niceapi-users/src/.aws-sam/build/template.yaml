@@ -1,0 +1,84 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Nice Api for user handling (without API Gateway configuration).
+Resources:
+  Users:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: Users
+      AttributeDefinitions:
+      - AttributeName: UserId
+        AttributeType: S
+      KeySchema:
+      - AttributeName: UserId
+        KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+  FunctionCreateUser:
+    Type: AWS::Serverless::Function
+    Metadata:
+      SamResourceId: FunctionCreateUser
+      SyncedEventProperties:
+        RootPost:
+        - Path
+        - Method
+      SyncedEvents:
+      - RootPost
+      Tool: Amazon.Lambda.Annotations
+    Properties:
+      FunctionName: niceapi-users-create
+      Runtime: dotnet8
+      CodeUri: FunctionCreateUser
+      MemorySize: 512
+      Timeout: 30
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - DynamoDBCrudPolicy:
+          TableName: Users
+      PackageType: Zip
+      Handler: NiceApiUsers::NiceAppApi.Users.Functions_CreateUser_Generated::CreateUser
+  FunctionUpdateUser:
+    Type: AWS::Serverless::Function
+    Metadata:
+      SamResourceId: FunctionUpdateUser
+      SyncedEventProperties:
+        RootPut:
+        - Path
+        - Method
+      SyncedEvents:
+      - RootPut
+      Tool: Amazon.Lambda.Annotations
+    Properties:
+      FunctionName: niceapi-users-update
+      Runtime: dotnet8
+      CodeUri: FunctionUpdateUser
+      MemorySize: 512
+      Timeout: 30
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - DynamoDBCrudPolicy:
+          TableName: Users
+      PackageType: Zip
+      Handler: NiceApiUsers::NiceAppApi.Users.Functions_UpdateUser_Generated::UpdateUser
+  FunctionGetUser:
+    Type: AWS::Serverless::Function
+    Metadata:
+      SamResourceId: FunctionGetUser
+      SyncedEventProperties:
+        RootGet:
+        - Path
+        - Method
+      SyncedEvents:
+      - RootGet
+      Tool: Amazon.Lambda.Annotations
+    Properties:
+      FunctionName: niceapi-users-get
+      Runtime: dotnet8
+      CodeUri: FunctionGetUser
+      MemorySize: 512
+      Timeout: 30
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - DynamoDBReadPolicy:
+          TableName: Users
+      PackageType: Zip
+      Handler: NiceApiUsers::NiceAppApi.Users.Functions_GetUser_Generated::GetUser

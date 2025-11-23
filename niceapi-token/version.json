@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "publicReleaseRefSpec": [
+    "^refs/heads/main$",
+    "^refs/heads/master$"
+  ],
+  "nugetPackageVersion": {
+    "semVer": 2
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "uUBL2OeJ6ZswiC4rnS1wtTCqJjpm/HPTGv6V37bFDj7zhuHQjJW6RdSUcxg2a77Wzx3qXU0l4HdmDj0Yj2V8Aw==",
+  "success": false,
+  "projectFilePath": "/home/miguel/code/aws/nice-api/niceapi-products/src/NiceAppApi.csproj",
+  "expectedPackageFiles": [
+    "/home/miguel/.nuget/packages/microsoft.netcore.app.ref/8.0.14/microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.netcore.app.crossgen2.linux-x64/8.0.14/microsoft.netcore.app.crossgen2.linux-x64.8.0.14.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source '/home/miguel/code/Nice/NiceApiToken/nuget-local/' doesn't exist.",
+      "libraryId": "NiceApiToken"
+    }
+  ]
+}

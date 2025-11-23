@@ -1,0 +1,9 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "niceapi-users"
+s3_bucket = "miguelvelarde-niceapp-deploy"
+s3_prefix = "niceapi-users"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
+resolve_s3 = true

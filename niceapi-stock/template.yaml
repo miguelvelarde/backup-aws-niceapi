@@ -1,0 +1,87 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Sample SAM Template for NiceApiStock
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 512
+
+Resources:
+  GetStockFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-Get"
+      CodeUri: ./src/
+      Handler: NiceApiStock::NiceApiStock.Functions.Get::FunctionHandler
+      Runtime: dotnet8
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: Stock
+
+  CreateStockFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-Create"
+      CodeUri: ./src/
+      Handler: NiceApiStock::NiceApiStock.Functions.Create::FunctionHandler
+      Runtime: dotnet8
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: Stock
+
+  UpdateStockFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-Update"
+      CodeUri: ./src/
+      Handler: NiceApiStock::NiceApiStock.Functions.Update::FunctionHandler
+      Runtime: dotnet8
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: Stock
+
+Outputs:
+  GetStockFunction:
+    Description: "Get Stock Lambda Function ARN"
+    Value: !GetAtt GetStockFunction.Arn
+
+  CreateStockFunction:
+    Description: "Create Stock Lambda Function ARN"
+    Value: !GetAtt CreateStockFunction.Arn
+
+  UpdateStockFunction:
+    Description: "Update Stock Lambda Function ARN"
+    Value: !GetAtt UpdateStockFunction.Arn
+
+  GetStockFunctionIamRole:
+    Description: "Implicit IAM Role created for Get Stock function"
+    Value: !GetAtt GetStockFunctionRole.Arn
+
+  CreateStockFunctionIamRole:
+    Description: "Implicit IAM Role created for Create Stock function"
+    Value: !GetAtt CreateStockFunctionRole.Arn
+
+  UpdateStockFunctionIamRole:
+    Description: "Implicit IAM Role created for Update Stock function"
+    Value: !GetAtt UpdateStockFunctionRole.Arn

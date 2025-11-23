@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "rC7oLLUl+y6t4V7Amxe8Y/uu+GP7t4HBbZRzZgDgjEJqU4QBjW/CUPYpxv1TjZpyav8c9ltU1I0VnqTAAoQ6gQ==",
+  "success": true,
+  "projectFilePath": "/home/miguel/code/Nice/nice-app-api/NiceApiStock/src/NiceApiStock.csproj",
+  "expectedPackageFiles": [
+    "/home/miguel/.nuget/packages/amazon.lambda.annotations/1.6.1/amazon.lambda.annotations.1.6.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/amazon.lambda.apigatewayevents/2.7.1/amazon.lambda.apigatewayevents.2.7.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/amazon.lambda.core/2.5.1/amazon.lambda.core.2.5.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/amazon.lambda.serialization.systemtextjson/2.4.4/amazon.lambda.serialization.systemtextjson.2.4.4.nupkg.sha512",
+    "/home/miguel/.nuget/packages/awssdk.core/4.0.0.5/awssdk.core.4.0.0.5.nupkg.sha512",
+    "/home/miguel/.nuget/packages/awssdk.dynamodbv2/4.0.1/awssdk.dynamodbv2.4.0.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/awssdk.extensions.netcore.setup/4.0.1/awssdk.extensions.netcore.setup.4.0.1.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.bcl.memory/9.0.0/microsoft.bcl.memory.9.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.extensions.configuration.abstractions/2.0.0/microsoft.extensions.configuration.abstractions.2.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.extensions.primitives/2.0.0/microsoft.extensions.primitives.2.0.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.abstractions/8.8.0/microsoft.identitymodel.abstractions.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.8.0/microsoft.identitymodel.jsonwebtokens.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.logging/8.8.0/microsoft.identitymodel.logging.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.identitymodel.tokens/8.8.0/microsoft.identitymodel.tokens.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/system.identitymodel.tokens.jwt/8.8.0/system.identitymodel.tokens.jwt.8.8.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/system.runtime.compilerservices.unsafe/4.4.0/system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.netcore.app.ref/8.0.14/microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512",
+    "/home/miguel/.nuget/packages/microsoft.netcore.app.crossgen2.linux-x64/8.0.14/microsoft.netcore.app.crossgen2.linux-x64.8.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,1172 @@
+{
+	"info": {
+		"_postman_id": "e362f6c2-d898-4048-9979-e5bde3a7ccae",
+		"name": "NiceApi Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24193513"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "users-get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"User has expected fields\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"UserId\");",
+									"    pm.expect(jsonData).to.have.property(\"Name\");",
+									"    pm.expect(jsonData).to.have.property(\"Phone\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Expiry",
+								"value": "2025-05-19T19:32:23.6923843Z",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-users}}/users",
+							"host": [
+								"{{url-base-users}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users-create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 or 201\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									"",
+									"pm.test(\"Response contains a UserId\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"UserId\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Expiry",
+								"value": "2025-05-19T19:32:23.6923843Z",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"UserId\": 1234,\n        \"Phone\": \"222222222\",\n        \"Name\": \"user123\",\n        \"Password\": \"user1234\",\n        \"Type\": \"user\",\n        \"Team\": \"pruebas\",\n        \"Selfie\": \"p_Selfie.png\",\n        \"Status\": 1\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-users}}",
+							"host": [
+								"{{url-base-users}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users-update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 or 201\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									"pm.test(\"Response contains created/updated user\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"UserId\", 1977);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Expiry",
+								"value": "2025-05-19T19:32:23.6923843Z",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"UserId\": 2020,\n        \"Phone\": \"6691234567\",\n        \"Name\": \"miguel\",\n        \"Password\": \"miguel1977\",\n        \"Type\": \"admin\",\n        \"Team\": \"administrator\",\n        \"Selfie\": \"p_Selfie.png\",\n        \"Status\": 1\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-users}}/users",
+							"host": [
+								"{{url-base-users}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health",
+			"item": [
+				{
+					"name": "health-echo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"UserId\": 1977,\n  \"Password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://oavcjc2bth.execute-api.us-east-1.amazonaws.com/echo",
+							"protocol": "https",
+							"host": [
+								"oavcjc2bth",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"echo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "health-check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Health check OK\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-health}}/health",
+							"host": [
+								"{{url-base-health}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "auth-login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Login successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"if (jsonData.Token) {",
+									"    pm.environment.set(\"token\", jsonData.Token);",
+									"",
+									"    const savedToken = pm.environment.get(\"token\");",
+									"    console.log(\"Token leído de pm.environment:\", savedToken); // <- Leer el token guardado",
+									"",
+									"    pm.test(\"Token guardado correctamente\", function () {",
+									"        pm.expect(savedToken).to.be.a(\"string\"); // <- Validar el valor que realmente se guardó",
+									"        pm.expect(savedToken).to.eql(jsonData.Token); // <- Verificar que es exactamente el mismo",
+									"    });",
+									"} else {",
+									"    pm.test(\"Token no recibido\", function () {",
+									"        pm.expect.fail(\"No se recibió un token en la respuesta\");",
+									"    });",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"UserId\": 2020,\n  \"Password\": \"liam2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-login}}auth/login",
+							"host": [
+								"{{url-base-login}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "clients",
+			"item": [
+				{
+					"name": "get-clients-by-clientId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Client response has expected fields\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"ClientId\");",
+									"    pm.expect(jsonData).to.have.property(\"Name\");",
+									"    pm.expect(jsonData).to.have.property(\"Phone\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-clients}}/clients/5",
+							"host": [
+								"{{url-base-clients}}"
+							],
+							"path": [
+								"clients",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-clients-by-userid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Client response has expected fields\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an(\"array\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-clients}}/clients",
+							"host": [
+								"{{url-base-clients}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put-clients-update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Client response has expected fields\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"ClientId\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientId\": 9,\n  \"name\": \"nueve\",\n  \"phone\": \"1111246810\",\n  \"comments\": \"cliente nueve\",\n  \"userId\": 2020\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-clients}}/clients",
+							"host": [
+								"{{url-base-clients}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-clients-create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Client created\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"ClientId\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientId\": 0,\n  \"name\": \"PROBANDO\",\n  \"phone\": \"5551246810\",\n  \"comments\": \"cliente prueba5\",\n  \"userId\": 2020\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-clients}}/clients",
+							"host": [
+								"{{url-base-clients}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "get-products-all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response is an array\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-products}}/products",
+							"host": [
+								"{{url-base-products}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-products-by-id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"User has expected fields\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"IdProduct\");",
+									"    pm.expect(jsonData).to.have.property(\"Name\");",
+									"    pm.expect(jsonData).to.have.property(\"Description\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-products}}/products/8",
+							"host": [
+								"{{url-base-products}}"
+							],
+							"path": [
+								"products",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-product-create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 or 201\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									"",
+									"pm.test(\"Response contains a IdProduct\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"IdProduct\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idProduct\": 0,\n  \"name\": \"Pulsera de ojo\",\n  \"description\": \"2024-1\",\n  \"image\": \"pulsera.jpg\",\n  \"price\": 100.0,\n  \"type\": \"Pulsera\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-products}}/products",
+							"host": [
+								"{{url-base-products}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-products-by-type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response is an array\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-products}}/products/type/Cadena",
+							"host": [
+								"{{url-base-products}}"
+							],
+							"path": [
+								"products",
+								"type",
+								"Cadena"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-products-by-name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response is an array\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-products}}/products/name/plana",
+							"host": [
+								"{{url-base-products}}"
+							],
+							"path": [
+								"products",
+								"name",
+								"plana"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stock",
+			"item": [
+				{
+					"name": "get-stock-by-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-stock}}/stock",
+							"host": [
+								"{{url-base-stock}}"
+							],
+							"path": [
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-stock-by-product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base-stock}}/stock/product/8",
+							"host": [
+								"{{url-base-stock}}"
+							],
+							"path": [
+								"stock",
+								"product",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sales-create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"StockId\": 0,\n        \"UserId\": 1977,\n        \"IdProduct\": 8,\n        \"Quantity\": 10,\n        \"Price\": 100.00,\n        \"MinimumStock\": 10,\n        \"Status\": \"active\",\n        \"CreatedAt\": \"2025-04-25T23:12:06Z\",\n        \"UpdatedAt\": \"2025-04-25T23:12:06Z\",\n        \"ProductName\": \"Cadena Plana\",\n        \"ProductDescription\": \"2024-2\",\n        \"ProductImage\": \"cadena.jpg\",\n        \"ProductType\": \"Cadena\",\n        \"BasePrice\": 100.00\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-stock}}/stock",
+							"host": [
+								"{{url-base-stock}}"
+							],
+							"path": [
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put-stock-update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"UserId\": 2020,\n        \"IdProduct\": 9,\n        \"Quantity\": 50,\n        \"Price\": 100.00,\n        \"MinimumStock\": 10\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-stock}}/stock",
+							"host": [
+								"{{url-base-stock}}"
+							],
+							"path": [
+								"stock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sales",
+			"item": [
+				{
+					"name": "post-sales-create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientId\": 3,\n  \"userId\": 2000,\n  \"productId\": 8,\n  \"quantity\": 1,\n  \"price\": 100,\n  \"total\": 100,\n  \"comments\": \"prueba venta\",\n  \"noTicket\": 3,\n  \"saleType\": \"Contado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-sales}}/sales",
+							"host": [
+								"{{url-base-sales}}"
+							],
+							"path": [
+								"sales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sales-by-user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-sales}}/sales/byuser/20",
+							"host": [
+								"{{url-base-sales}}"
+							],
+							"path": [
+								"sales",
+								"byuser",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sales-by-client",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-sales}}/sales/byclient/3/2",
+							"host": [
+								"{{url-base-sales}}"
+							],
+							"path": [
+								"sales",
+								"byclient",
+								"3",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-sales-by-sale-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base-sales}}/sales/byid/7",
+							"host": [
+								"{{url-base-sales}}"
+							],
+							"path": [
+								"sales",
+								"byid",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjkxMjM0NTY3IiwianRpIjoiMjVjNjQzYTQtMzcyOS00ZDJmLWFlYjItMWFiYzU0ZjE1Mzg3IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6Im1pZ3VlbCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwidXNlcklkIjoiMTk3NyIsImV4cCI6MTc0NTQzNDkwNywiaXNzIjoiTmljZUFwcEFwaSIsImF1ZCI6Ik5pY2VBcHBNb2JpbGUifQ.CphBXPt4sDNfFCtQA2MwgV39BK4-Pjniad6RRtkGQkk",
+			"type": "string"
+		},
+		{
+			"key": "url-base-users",
+			"value": "https://fcbihe9r17.execute-api.us-east-1.amazonaws.com/users",
+			"type": "string"
+		},
+		{
+			"key": "url-base-login",
+			"value": "https://p9zfwsdeu7.execute-api.us-east-1.amazonaws.com/",
+			"type": "string"
+		},
+		{
+			"key": "url-base-health",
+			"value": "https://oavcjc2bth.execute-api.us-east-1.amazonaws.com",
+			"type": "string"
+		},
+		{
+			"key": "url-base-clients",
+			"value": "https://ysdkttdvg6.execute-api.us-east-1.amazonaws.com/",
+			"type": "string"
+		},
+		{
+			"key": "url-base-products",
+			"value": "https://brz6wo23ii.execute-api.us-east-1.amazonaws.com",
+			"type": "string"
+		},
+		{
+			"key": "url-base-stock",
+			"value": "https://993kzxqerf.execute-api.us-east-1.amazonaws.com",
+			"type": "string"
+		},
+		{
+			"key": "url-base-sales",
+			"value": "https://n92397agzc.execute-api.us-east-1.amazonaws.com",
+			"type": "string"
+		}
+	]
+}

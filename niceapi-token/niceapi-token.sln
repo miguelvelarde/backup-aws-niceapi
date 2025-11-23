@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "niceapi-token", "niceapi-token.csproj", "{AA6AEF8D-918C-7D73-6AA9-3D629ACAE3E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA6AEF8D-918C-7D73-6AA9-3D629ACAE3E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6AEF8D-918C-7D73-6AA9-3D629ACAE3E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6AEF8D-918C-7D73-6AA9-3D629ACAE3E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6AEF8D-918C-7D73-6AA9-3D629ACAE3E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CC64BCD-6E47-4432-A56C-4E2F4C34C35E}
+	EndGlobalSection
+EndGlobal
